@@ -14,7 +14,6 @@ import java.util.*;
 
 class RecDesParser {
     static int ptr;
-    static char[] input;
     private static ArrayList<Token> tokenArrayList = new ArrayList<>();
 
     public static void main(String args[]) {
@@ -35,26 +34,29 @@ class RecDesParser {
         tokenArrayList.add(token);
         boolean isValid = S();
         if ((isValid) & (ptr == tokenArrayList.size() - 1)) {
-            System.out.println(ptr + " " + tokenArrayList.size());
             System.out.println("The input string is valid.");
         } else {
-            System.out.println(ptr + " " + tokenArrayList.size());
             System.out.println("The input string is invalid.");
         }
     }
 
     static boolean S() {
+        int fallback = ptr;
         if (!Program()) {
+            ptr = fallback;
             return false;
         }
         return true;
     }
 
     static boolean Program() {
+        int fallback = ptr;
         if (!Stmt()) {
+            ptr = fallback;
             return false;
         }
         if (!Program1()) {
+            ptr = fallback;
             return false;
         }
         return true;
@@ -70,9 +72,11 @@ class RecDesParser {
                         return true;
                     } else {
                         if (!Stmt()) {
+                            ptr = fallback;
                             return false;
                         }
                         if (!Program1()) {
+                            ptr = fallback;
                             return false;
                         }
                     }
@@ -114,7 +118,6 @@ class RecDesParser {
                 ptr = fallback;
                 return false;
             }
-            System.out.println(ptr + tokenArrayList.get(ptr).getName());
             if (!(tokenArrayList.get(ptr++).getName().equals("END"))) {
                 ptr = fallback;
                 return false;
