@@ -2,6 +2,7 @@ import com.sun.deploy.net.MessageHeader;
 
 import java.util.*;
 
+
 /*
  *       S-->Program EOF
  *       Program --> Stmt Program1
@@ -36,7 +37,7 @@ class RecDesParser {
         if ((isValid) & (ptr == tokenArrayList.size() - 1)) {
             System.out.println("The input string is valid.");
         } else {
-            System.out.println("The input string is invalid.");
+            System.out.println("Syntax Error");
         }
     }
 
@@ -238,4 +239,5 @@ class RecDesParser {
         ptr = fallback;
         return false;
     }
+
 }

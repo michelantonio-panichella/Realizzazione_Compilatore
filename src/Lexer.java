@@ -12,6 +12,7 @@ public class Lexer {
     private int state;
     boolean ritornaUltimoCarattere = false;
     private boolean precedente;
+    boolean vero = true;
     //..
 
     public Token installID(String lessema) {
@@ -67,7 +68,6 @@ public class Lexer {
         state = 0;
         String lessema = "";//è il lessema riconosciuto
         char c;
-        boolean vero = true;
         String str = " ";
         while (vero) {
 
@@ -108,7 +108,7 @@ public class Lexer {
                         lessema = lessema + c;
                         state = 12;
                         bufferedReader.mark(1);
-                    } else if (/*c == '(' || c == ')' || c == '{' || c == '}' || c == ',' ||*/ c == ';') {
+                    } else if (c == ';') {
                         lessema = lessema + c;
                         state = 15;
                         bufferedReader.mark(1);
@@ -157,7 +157,6 @@ public class Lexer {
                         Token tok_Numb = new Token("NUMB",lessema);
                         return tok_Numb;
                     } else if(c == '.'){
-                        // l'aggiunta del punto viene fatta nello stato 4
                         state = 4;
                     } else {
                         retrack();
@@ -167,9 +166,9 @@ public class Lexer {
                     break;
                 case 4:
                     if (Character.isDigit(c)) {
-                        lessema = lessema + '.';  //E' stato aggiunto qui in modo tale da effettuare un controllo dell'erroee poiché se veniva aggiunto prima, e si verificava che dopo il punto non c'era nulla non si era in grado di toglierno
+                        lessema = lessema + '.';  //E' stato aggiunto qui in modo tale da effettuare un controllo dell'erroee poiché se veniva aggiunto prima, e si verificava che dopo il punto non c'era nulla non si era in grado di toglierlo
                         lessema = lessema + c;
-                        state = 18; //Attenzione lo stato 18 è il successivo (è messo cosiì in quanto è una correzione fatta dopo)
+                        state = 18; //Attenzione lo stato 18 è il successivo (è messo così in quanto è una correzione fatta dopo)
                         bufferedReader.mark(1);
                     } else if (c == ' ' || c == '\n') {
                         retrack();
