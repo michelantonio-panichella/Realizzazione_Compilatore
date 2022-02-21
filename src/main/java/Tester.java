@@ -42,7 +42,7 @@ class Tester {
         if ((isValid) & (ptr == tokenArrayList.size() - 1)) {
             System.out.println("Input string is valid.");
         } else {
-            System.out.println("Syntax error");
+            System.out.println("syntax error");
         }
     }
 
