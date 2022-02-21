@@ -21,7 +21,7 @@ cat my.report.txt
 
 while read p; do
 	if [[ ! "$p" =~ ^invalid[0-9]*.txt.Syntax.error$ ]] && [[ ! "$p" =~ ^valid[0-9]*.txt.Input.is.valid$ ]]; then
-		echo "Errore qua"
+		echo "Error"
 		exit 1
 	fi
 done < my.report.txt
