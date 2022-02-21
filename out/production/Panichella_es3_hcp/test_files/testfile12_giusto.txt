@@ -1,0 +1,9 @@
+
+
+while parola < 10 loop
+    if parola < 5 then
+        parola <-- parolone
+    else
+        parola <-- parolina
+    end if
+end loop

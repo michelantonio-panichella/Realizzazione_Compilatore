@@ -1,3 +1,5 @@
+package main.java;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -192,7 +194,7 @@ public class Lexer {
                     } else if (c == ' ' || c == '\n') {
                         state = 5;
                         //retrack();
-                        //Token tok_Numb2 = new Token("NUMB", lessema);
+                        //main.java.Token tok_Numb2 = new main.java.Token("NUMB", lessema);
                         //return tok_Numb2;
                     } else if(letto == -1) {
                         retrack();
@@ -290,7 +292,7 @@ public class Lexer {
                     if(c!='"'){
                         lessema = lessema + c;
                     } else if(c == '\n'){
-                        Token tokenError = new Token ("ERRORE", "lessema");
+                        Token tokenError = new Token("ERRORE", "lessema");
                         return tokenError;
                     } else if(c=='"'){
                         Token tokenCost = new Token("Costante", lessema);

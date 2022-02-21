@@ -1,3 +1,5 @@
+package main.java;
+
 public class Token {
 
     private String name;     // questo è un identificativo di token: potrebbe anche essere un intero
