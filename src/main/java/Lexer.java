@@ -139,7 +139,6 @@ public class Lexer {
                         retrack();
                         return installID(lessema);
                     }else if(letto == -1){// Controllo Fine File
-                        System.out.println("Fine file");
                         return installID(lessema);
                     }
                     else {
