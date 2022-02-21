@@ -39,7 +39,7 @@ cache:
   script:
     - 'mvn $MAVEN_CLI_OPTS clean'
     - 'mvn $MAVEN_CLI_OPTS compile'
-    - './runtests.sh'
+    - './runtests.sh -e'
   except:
     variables:
       - $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
@@ -57,7 +57,7 @@ deploy:jdk17:
   script:
     - 'mvn $MAVEN_CLI_OPTS clean'
     - 'mvn $MAVEN_CLI_OPTS compile'
-    - './runtests.sh'
+    - './runtests.sh -e'
   only:
     variables:
       - $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
