@@ -40,9 +40,9 @@ class RecDesParser {
         }
         boolean isValid = S();
         if ((isValid) & (ptr == tokenArrayList.size() - 1)) {
-            System.out.println("The input string is valid.");
+            System.out.println("Input string is valid.");
         } else {
-            System.out.println("Syntax Error");
+            System.out.println("Syntax error");
         }
     }
 
