@@ -75,6 +75,7 @@ public class Lexer {
 
             int letto = bufferedReader.read();
             if(letto == -1) {
+                c = (char) letto;
                 if ((ritornaUltimoCarattere == false)) {
                     vero = false;
                 } else if (ritornaUltimoCarattere == true){
@@ -122,7 +123,8 @@ public class Lexer {
                             Token token = new Token("SIMBOLO NON RICONOSCIUTO", lessema);
                             return token;
                         }else{
-                            return null;
+                            Token token = new Token("NULL", lessema);
+                            return token;
                         }
                     }
                     break;
@@ -136,7 +138,8 @@ public class Lexer {
                     } else if(c == ';'){
                         retrack();
                         return installID(lessema);
-                    }else if(letto == -1){ // Controllo Fine File
+                    }else if(letto == -1){// Controllo Fine File
+                        System.out.println("Fine file");
                         return installID(lessema);
                     }
                     else {
@@ -160,6 +163,7 @@ public class Lexer {
                         return tok_Numb;
                     } else if(c == '.'){
                         state = 4;
+                        bufferedReader.mark(1);
                     } else {
                         retrack();
                         Token tok_Numb = new Token("NUMB",lessema);
