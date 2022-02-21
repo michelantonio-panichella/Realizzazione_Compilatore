@@ -123,8 +123,7 @@ public class Lexer {
                             Token token = new Token("SIMBOLO NON RICONOSCIUTO", lessema);
                             return token;
                         }else{
-                            Token token = new Token("NULL", lessema);
-                            return token;
+                            return null;
                         }
                     }
                     break;
@@ -162,7 +161,6 @@ public class Lexer {
                         return tok_Numb;
                     } else if(c == '.'){
                         state = 4;
-                        bufferedReader.mark(1);
                     } else {
                         retrack();
                         Token tok_Numb = new Token("NUMB",lessema);
