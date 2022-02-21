@@ -235,9 +235,9 @@ public class Tester {
         }
         Token token = new Token("EOF");
         tokenArrayList.add(token);
-        for(Token tokena : tokenArrayList){
+        /*for(Token tokena : tokenArrayList){
             System.out.println(tokena);
-        }
+        }*/
         boolean isValid = S();
         if ((isValid) & (ptr == tokenArrayList.size() - 1)) {
             System.out.println("Input is valid");
