@@ -1,5 +1,0 @@
-cavallo <-- 34;
-
-cavallo <-- 45;
-
-if a>b then a <-- 23 else id > 10 end if
