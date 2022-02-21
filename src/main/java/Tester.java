@@ -240,7 +240,7 @@ public class Tester {
         }*/
         boolean isValid = S();
         if ((isValid) & (ptr == tokenArrayList.size() - 1)) {
-            System.out.println("Input string is valid");
+            System.out.println("Input is valid");
         } else {
             System.out.println("Syntax error");
         }
