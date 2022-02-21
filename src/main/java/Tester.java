@@ -19,33 +19,6 @@ class Tester {
     static int ptr;
     private static ArrayList<Token> tokenArrayList = new ArrayList<>();
 
-    public static void main(String args[]) {
-        Lexer lexer = new Lexer();
-        String filepath = args[0];
-
-        if (lexer.initialize(filepath)) {
-            Token token;
-            try {
-                while ((token = lexer.nextToken()) != null) {
-                    tokenArrayList.add(token);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        Token token = new Token("EOF");
-        tokenArrayList.add(token);
-        /*for(Token tokena : tokenArrayList){
-            System.out.println(tokena);
-        }*/
-        boolean isValid = S();
-        if ((isValid) & (ptr == tokenArrayList.size() - 1)) {
-            System.out.println("Input string is valid.");
-        } else {
-            System.out.println("syntax error");
-        }
-    }
-
     static boolean S() {
         int fallback = ptr;
         if (!Program()) {
@@ -244,5 +217,35 @@ class Tester {
         ptr = fallback;
         return false;
     }
+
+
+    public static void main(String args[]) {
+        Lexer lexer = new Lexer();
+        String filepath = args[0];
+
+        if (lexer.initialize(filepath)) {
+            Token token;
+            try {
+                while ((token = lexer.nextToken()) != null) {
+                    tokenArrayList.add(token);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        Token token = new Token("EOF");
+        tokenArrayList.add(token);
+        /*for(Token tokena : tokenArrayList){
+            System.out.println(tokena);
+        }*/
+        boolean isValid = S();
+        if ((isValid) & (ptr == tokenArrayList.size() - 1)) {
+            System.out.println("Input string is valid.");
+        } else {
+            System.out.println("Syntax error");
+        }
+    }
+
+
 
 }
