@@ -15,7 +15,7 @@ import java.util.*;
  *       RELOP --> OP_MIN | OP_MIN_EQ | OP_MIN_MAX | OP_MAX | OP_MAX_EQ
  * */
 
-class Tester {
+public class Tester {
     static int ptr;
     private static ArrayList<Token> tokenArrayList = new ArrayList<>();
 
