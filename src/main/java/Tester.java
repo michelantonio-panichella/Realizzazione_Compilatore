@@ -171,7 +171,7 @@ public class Tester {
         int fallback = ptr;
         if (tokenArrayList.get(ptr).getName().equals("ID")) {
             int counter = ptr + 1;
-            if (counter < tokenArrayList.size() - 1) { //effettua controllo se è finita o meno la stringa
+            if (!(counter > tokenArrayList.size() - 1)) { //effettua controllo se è finita o meno la stringa
                 ptr = ptr + 1;
                 if (!Expr1()) {
                     return false;
@@ -239,7 +239,7 @@ public class Tester {
             System.out.println(tokena);
         }*/
         boolean isValid = S();
-        if ((isValid) & (ptr == tokenArrayList.size() - 1)) {
+        if ((isValid) && (ptr == tokenArrayList.size() - 1)) {
             System.out.println("Input is valid");
         } else {
             System.out.println("Syntax error");
